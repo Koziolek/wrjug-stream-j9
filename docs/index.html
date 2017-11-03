@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Streams w Javie 9</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Streams w Javie 9</h2>
+            <p>
+                <small><a href="http://koziolekweb.pl">Bartek „Koziołek” Kuczyński</a> / <a
+                        href="http://twitter.com/koziolek">@koziolek</a></small>
+            </p>
+        </section>
+        <section>
+            <h2>Zanim będzie o Javie 9</h2>
+            <h4 class="fragment">Będzie o Javie 8</h4>
+        </section>
+        <section>
+            <section>
+                <h3>Magiczny <samp>Spliterator</samp></h3>
+                <p class="fragment">Do czego służy?</p>
+            </section>
+            <section>
+                <p>Do łażenia po kolekcji, tablicy, IO, funkcji generującej</p>
+                <p class="fragment">Zarówno po elemencie – <samp>tryAdvice</samp></p>
+                <p class="fragment">Jak i po całości – <samp>forEachRemaining</samp></p>
+            </section>
+            <section>
+                <h3>Przykładzik</h3>
+            </section>
+            <section>
+                <h3>Wniosek?</h3>
+                <p class="fragment">JDK 8 miało wszystko czego potrzeba!</p>
+            </section>
+            <section>
+                <h3>Przykładzik 2</h3>
+            </section>
+            <section>
+                <h3>To po co nam nowe metody?</h3>
+                <p class="fragment">Standaryzacja</p>
+                <p class="fragment">…ale nie tylko.</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3>Nasz kochany <samp>Optional</samp></h3>
+            </section>
+            <section>
+                <p>On ma <samp>map</samp></p>
+                <p class="fragment">…i <samp>flatMap</samp></p>
+                <p class="fragment">…i <samp>filter</samp></p>
+            </section>
+            <section>
+                <p>Jedną ma wadę wśród zalet tylu</p>
+                <p class="fragment">Nie działa jak reaktor w Czarnobylu</p>
+                <p class="fragment">… w sumie może to lepiej</p>
+            </section>
+
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
