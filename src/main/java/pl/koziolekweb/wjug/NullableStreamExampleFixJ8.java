@@ -1,5 +1,6 @@
 package pl.koziolekweb.wjug;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -14,7 +15,7 @@ public class NullableStreamExampleFixJ8 {
         Stream.of(s).forEach(System.out::println);
 
         System.out.println("----");
-        Stream.of(s).filter(_s -> _s != null).forEach(System.out::println);
+        Stream.of(s).filter(Objects::nonNull).forEach(System.out::println);
 
     }
 }

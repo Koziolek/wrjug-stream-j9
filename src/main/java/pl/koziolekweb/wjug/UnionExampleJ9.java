@@ -6,6 +6,7 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.Serializable;
 import java.io.StringReader;
 import java.util.Optional;
 
@@ -15,21 +16,21 @@ public class UnionExampleJ9 {
         String dane = "<order><customizedProduct/></order>";
         Document document = loadXML(dane);
 
-        Optional<Product> product = getProduct(document);
+        Optional<? extends Serializable> product = getProduct(document);
 
         product.ifPresent(System.out::println);
     }
 
-    private static Optional<Product> getProduct(Document document) {
+    private static <T extends Product & Serializable> Optional<T> getProduct(Document document) {
         return firstByName(document, "businessProduct")
-                .<Product>map(n -> new BusinessProduct())
+                .map(n -> (T)new BusinessProduct())
                 .or(
                         () -> firstByName(document, "personalProduct")
-                                .<Product>map(n -> new PersonalProduct())
+                                .map(n -> (T)new PersonalProduct())
                 )
                 .or(
                         () -> firstByName(document, "customizedProduct")
-                                .map(n -> new CustomizedProduct())
+                                .map(n -> (T)new CustomizedProduct())
                 );
     }
 

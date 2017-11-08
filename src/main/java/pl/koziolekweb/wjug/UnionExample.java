@@ -6,6 +6,7 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.Serializable;
 import java.io.StringReader;
 import java.util.Optional;
 
@@ -53,11 +54,11 @@ public class UnionExample {
 abstract class Product {
 }
 
-class BusinessProduct extends Product {
+class BusinessProduct extends Product implements Serializable {
 }
 
-class PersonalProduct extends Product {
+class PersonalProduct extends Product implements Serializable{
 }
 
-class CustomizedProduct extends Product {
+class CustomizedProduct extends Product implements Serializable{
 }
